@@ -960,9 +960,9 @@ def _arma_func(X, Y, idx=None, **kwargs):
     trend = kwargs.pop("trend", "nc")
 
     if len(Y.shape) == 2:
-        model = sm.tsa.arima_model.ARMA(endog=Y[:, idx], exog=X.values, order=order)
+        model = sm.tsa.arima.model.ARIMA(endog=Y[:, idx], exog=X.values, order=order)
     else:
-        model = sm.tsa.arima_model.ARMA(endog=Y, exog=X.values, order=order)
+        model = sm.tsa.arima.model.ARIMA(endog=Y, exog=X.values, order=order)
     try:
         res = model.fit(
             trend=trend,
